@@ -1,0 +1,41 @@
+﻿@page
+@model VID_Issuance.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+            <div style="text-align: center;">
+                <img src="VerifiedCredentialExpert-icon.png" height=200px; />
+                <h1>Verifiable Credential Expert Issuance and Verifier Sample</h1>
+
+                <p style="text-align:left;">
+                    This Application issues a Verified ID credential using claims from the signed in user. <!-- Check if the User has claims such as 
+                   <i>family_name</i> and <i>given_name</i> under <strong>Token configuration</strong>
+                    in the app registration for appid 
+        <a href="https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/~/TokenConfiguration/appId/@ViewData["AzureAd:ClientId"]/isMSAApp~/false">@ViewData["AzureAd:ClientId"]</a> --->
+                </p>
+                @if (User.Identity.IsAuthenticated) {
+                <br/>
+                <p style="text-align:left;">
+                    UserName: @ViewData["username"]
+                    <br/>                
+                    Name: @ViewData["given_name"]
+                    <br/>
+                    FamilyName: @ViewData["family_name"]
+                    <br/>
+                    Email: @ViewData["email"] 
+                    <br/>
+                    Mobile: @ViewData["Mobile"] 
+                    <br/>
+                    Country: @ViewData["Country"]
+                    <br/> 
+                    Department: @ViewData["Department"]
+                    <br/>
+                    JobTitle: @ViewData["JobTitle"]
+                    <br />
+
+        </p>
+
+                }
+
+            </div>
